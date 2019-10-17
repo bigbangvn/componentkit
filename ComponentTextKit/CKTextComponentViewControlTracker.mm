@@ -71,11 +71,12 @@
                               withTouch:(UITouch *)touch
                               withEvent:(UIEvent *)event
 {
+  //BangNT: always send event
+  if (touch != nil) {
+      [self _sendActionsToControl:view forControlEvents:CKUIControlEventTextViewDidEndHighlightingText withEvent:event];
+  }
   if (_trackingTextCheckingResult != nil) {
     _trackingTextCheckingResult = nil;
-    if (touch != nil) {
-      [self _sendActionsToControl:view forControlEvents:CKUIControlEventTextViewDidEndHighlightingText withEvent:event];
-    }
     view.textLayer.highlighter.highlightedRange = CKTextComponentLayerInvalidHighlightRange;
   }
 }
