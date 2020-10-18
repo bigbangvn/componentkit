@@ -195,19 +195,19 @@ static CKButtonComponentConfiguration *configurationFromValues(const std::unorde
   CKButtonComponentConfiguration *config = [[CKButtonComponentConfiguration alloc] init];
   CKStateConfigurationArray &configs = config->_configurations;
   NSUInteger hash = 0;
-  for (const auto it : titles) {
+  for (const auto &it : titles) {
     configs[indexForState(it.first)].title = it.second;
     hash ^= (it.first ^ [it.second hash]);
   }
-  for (const auto it : titleColors) {
+  for (const auto &it : titleColors) {
     configs[indexForState(it.first)].titleColor = it.second;
     hash ^= (it.first ^ [it.second hash]);
   }
-  for (const auto it : images) {
+  for (const auto &it : images) {
     configs[indexForState(it.first)].image = it.second;
     hash ^= (it.first ^ [it.second hash]);
   }
-  for (const auto it : backgroundImages) {
+  for (const auto &it : backgroundImages) {
     configs[indexForState(it.first)].backgroundImage = it.second;
     hash ^= (it.first ^ [it.second hash]);
   }
